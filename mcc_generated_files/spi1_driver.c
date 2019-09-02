@@ -51,7 +51,7 @@ bool spi1_open(spi1_modes spiUniqueConfiguration)
         SSP1CLKPPS = 14;
         SSP1DATPPS = 12;
         RB6PPS = 19;
-        RC1PPS = 20;
+        RC5PPS = 20;
 
         //setup SPI
         SSP1STAT = spi1_configuration[spiUniqueConfiguration].stat;
