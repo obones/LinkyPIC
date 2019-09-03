@@ -49,8 +49,8 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 #include "../spi1_types.h"
 #include "network.h"
 
-#define ETH_NCS_HIGH() do{LATB7 = 1;} while(0)  //Use the Ethernet Chip select as per your hardware specification here
-#define ETH_NCS_LOW()  do{LATB7 = 0;} while(0)  //Use the Ethernet Chip select as per your hardware specification here
+#define ETH_NCS_HIGH() do{LATC3 = 1;} while(0)  //Use the Ethernet Chip select as per your hardware specification here
+#define ETH_NCS_LOW()  do{LATC3 = 0;} while(0)  //Use the Ethernet Chip select as per your hardware specification here
         
 #define ETH_SPI_READ8()   spi1_exchangeByte(0)
 #define ETH_SPI_WRITE8(a) spi1_exchangeByte(a)
