@@ -48,9 +48,9 @@ bool spi1_open(spi1_modes spiUniqueConfiguration)
     if(!SSP1CON1bits.SSPEN)
     {
         //setup PPS pins
-        SSP1CLKPPS = 1;
+        SSP1CLKPPS = 14;
         SSP1DATPPS = 5;
-        RA1PPS = 19;
+        RB6PPS = 19;
         RA4PPS = 20;
 
         //setup SPI
@@ -59,7 +59,7 @@ bool spi1_open(spi1_modes spiUniqueConfiguration)
         SSP1CON2 = 0x00;
         SSP1ADD  = (uint8_t)(spi1_configuration[spiUniqueConfiguration].add);
 
-        TRISAbits.TRISA1 = (uint8_t)(spi1_configuration[spiUniqueConfiguration].operation);
+        TRISBbits.TRISB6 = (uint8_t)(spi1_configuration[spiUniqueConfiguration].operation);
         return true;
     }
     return false;
