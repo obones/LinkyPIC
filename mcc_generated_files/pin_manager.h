@@ -65,6 +65,26 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set LED aliases
+#define LED_TRIS                 TRISAbits.TRISA2
+#define LED_LAT                  LATAbits.LATA2
+#define LED_PORT                 PORTAbits.RA2
+#define LED_WPU                  WPUAbits.WPUA2
+#define LED_OD                   ODCONAbits.ODCA2
+#define LED_ANS                  ANSELAbits.ANSA2
+#define LED_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define LED_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define LED_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define LED_GetValue()           PORTAbits.RA2
+#define LED_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define LED_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define LED_SetPullup()          do { WPUAbits.WPUA2 = 1; } while(0)
+#define LED_ResetPullup()        do { WPUAbits.WPUA2 = 0; } while(0)
+#define LED_SetPushPull()        do { ODCONAbits.ODCA2 = 0; } while(0)
+#define LED_SetOpenDrain()       do { ODCONAbits.ODCA2 = 1; } while(0)
+#define LED_SetAnalogMode()      do { ANSELAbits.ANSA2 = 1; } while(0)
+#define LED_SetDigitalMode()     do { ANSELAbits.ANSA2 = 0; } while(0)
+
 // get/set SDO1 aliases
 #define SDO1_TRIS                 TRISAbits.TRISA4
 #define SDO1_LAT                  LATAbits.LATA4

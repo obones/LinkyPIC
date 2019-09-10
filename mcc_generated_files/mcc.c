@@ -52,6 +52,7 @@ void SYSTEM_Initialize(void)
     PMD_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    TMR2_Initialize();
     TMR1_Initialize();
     EUSART1_Initialize();
     Network_Init();
@@ -75,8 +76,8 @@ void PMD_Initialize(void)
 {
     // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR disabled; IOCMD IOC enabled; NVMMD NVM enabled; 
     PMD0 = 0x40;
-    // TMR0MD TMR0 disabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 disabled; TMR2MD TMR2 disabled; TMR3MD TMR3 enabled; TMR6MD TMR6 disabled; 
-    PMD1 = 0x75;
+    // TMR0MD TMR0 disabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 disabled; TMR2MD TMR2 enabled; TMR3MD TMR3 disabled; TMR6MD TMR6 disabled; 
+    PMD1 = 0x79;
     // NCO1MD NCO1 enabled; 
     PMD2 = 0x00;
     // ZCDMD ZCD disabled; CMP1MD CMP1 disabled; ADCMD ADC disabled; CMP2MD CMP2 disabled; DAC1MD DAC1 disabled; 
