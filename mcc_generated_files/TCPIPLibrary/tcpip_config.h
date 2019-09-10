@@ -55,9 +55,9 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 #define ARP_MAP_SIZE 8
 
 /******************************** DHCP Protocol Defines ********************************/
-const char dhcpName[] = "PIC16F18446 Ethernet";
+const char dhcpName[] = "LinkyPIC";
 // unfortunately, you must defined the macro below as sizeof does not work in the preprocessor
-#define DHCP_NAME_SIZE 20
+#define DHCP_NAME_SIZE 8
 
 
 /******************************** IP Protocol Defines ********************************/

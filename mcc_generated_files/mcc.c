@@ -63,8 +63,8 @@ void OSCILLATOR_Initialize(void)
     OSCCON1 = 0x62;
     // CSWHOLD may proceed; SOSCPWR Low power; 
     OSCCON3 = 0x00;
-    // MFOEN disabled; LFOEN disabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled; 
-    OSCEN = 0x00;
+    // MFOEN disabled; LFOEN enabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled; 
+    OSCEN = 0x10;
     // HFFRQ 4_MHz; 
     OSCFRQ = 0x02;
     // HFTUN 0; 
