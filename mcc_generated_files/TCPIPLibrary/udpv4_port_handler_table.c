@@ -42,12 +42,14 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 #include "dhcp_client.h"
 #include "udpv4_port_handler_table.h"
 #include "tcpip_config.h"
+#include "../../udp_server.h"
 
 #define SOURCEPORT_DEV_REG  65521
 
 const udp_handler_t UDP_CallBackTable[] = \
 {    
     {68, DHCP_Handler},     // a catcher to manage the DHCP process
+    {UDP_SERVER_PORT, UDP_Server},    
 };
 
 // ***************** Leave the stuff below this line alone *********************
