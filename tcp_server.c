@@ -56,7 +56,7 @@ void TCP_Server(void)
                 
                 // read any data from the Serial port
                 transmitLength = 0;
-                while (EUSART1_is_rx_ready())
+                while (EUSART1_is_rx_ready() && transmitLength < sizeof(transmitBuffer))
                 {
                     uint8_t readByte = EUSART1_Read();
                     if (!
