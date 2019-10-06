@@ -15,8 +15,8 @@ void TCP_Server(void)
 
     // TX and RX Server's buffers
     static uint8_t receiveBuffer[10];
-    static uint8_t transmitBuffer[16];
-    
+    static uint8_t transmitBuffer[32];
+
     int16_t receivedLength;
     uint16_t transmitLength;
     socketState_t socket_state;

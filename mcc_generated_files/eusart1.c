@@ -54,7 +54,7 @@
 */
 
 #define EUSART1_TX_BUFFER_SIZE 8
-#define EUSART1_RX_BUFFER_SIZE 16
+#define EUSART1_RX_BUFFER_SIZE 64
 
 /**
   Section: Global Variables
