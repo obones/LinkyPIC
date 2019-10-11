@@ -244,7 +244,9 @@ void EUSART1_RxDataHandler(void){
     {
         eusart1RxHead = 0;
     }
-    eusart1RxCount++;
+    
+    if (eusart1RxCount < EUSART1_RX_BUFFER_SIZE)
+        eusart1RxCount++;
 }
 
 void EUSART1_DefaultFramingErrorHandler(void){}
