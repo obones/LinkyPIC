@@ -69,6 +69,14 @@ void TCP_Server(void)
                     }
                 }
                 
+                // if no data was read, send a keep alive sequence anyway
+                if (transmitLength == 0)
+                {
+                    transmitLength = 2;
+                    transmitBuffer[0] = 0x02;
+                    transmitBuffer[1] = 0x03;
+                }    
+                
                 // send data, if any
                 if (transmitLength > 0)
                     TCP_Send(&serverSocket, transmitBuffer, transmitLength);
