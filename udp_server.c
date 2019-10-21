@@ -15,11 +15,11 @@ void UDP_Server(int length)
 {
     ReceivedPacket_t ReceivedPacket;
     
-    //if (length == (int)sizeof(ReceivedPacket))
+    if (length == (int)sizeof(ReceivedPacket))
     {
         UDP_ReadBlock(&ReceivedPacket, sizeof(ReceivedPacket));
 
-        //if (strcmp(ReceivedPacket.ID, ExpectedID) == 0)
+        if (memcmp(ReceivedPacket.ID, ExpectedID, sizeof(ReceivedPacket)) == 0)
         {
            error_msg ret = UDP_Start(ipv4Header.srcIpAddress, udpHeader.dstPort, ntohs(udpHeader.srcPort));
 
