@@ -87,6 +87,8 @@
       <itemPath>tcp_server.h</itemPath>
       <itemPath>udp_server.h</itemPath>
       <itemPath>udp_server.c</itemPath>
+      <itemPath>notification_led.h</itemPath>
+      <itemPath>notification_led.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
