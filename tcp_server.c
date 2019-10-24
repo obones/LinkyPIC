@@ -18,6 +18,7 @@
 #include <string.h>
 #include "mcc_generated_files/mcc.h"
 #include "tcp_server.h"
+#include "notification_led.h"
 #include "mcc_generated_files/TCPIPLibrary/tcpv4.h"
 #include "mcc_generated_files/TCPIPLibrary/ipv4.h"
 #include "mcc_generated_files/TCPIPLibrary/tcpip_config.h"
@@ -46,6 +47,7 @@ void TCP_Server(void)
             TCP_SocketInit(&serverSocket);
             break;
         case SOCKET_CLOSED:
+            NotificationLEDMode = nlmError;
             //configure the local port
             TCP_Bind(&serverSocket, ListenPort);
             // add receive buffer
@@ -88,10 +90,16 @@ void TCP_Server(void)
                 // if no data was read, send a keep alive sequence anyway
                 if (transmitLength == 0)
                 {
+                    NotificationLEDMode = nlmError;
+                    
                     transmitLength = 2;
                     transmitBuffer[0] = 0x02;
                     transmitBuffer[1] = 0x03;
-                }    
+                }
+                else
+                {
+                    NotificationLEDMode = nlmSynchronized;
+                }
                 
                 // send data, if any
                 if (transmitLength > 0)
@@ -100,6 +108,7 @@ void TCP_Server(void)
             break;
         case SOCKET_CLOSING:
             TCP_SocketRemove(&serverSocket);
+            NotificationLEDMode = nlmError;
             break;
             
         default:
