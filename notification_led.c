@@ -4,7 +4,11 @@
 #define LED_On() LED_SetLow()
 #define LED_Off() LED_SetHigh()
 
-volatile _NotificationLEDMode NotificationLEDMode = nlmError;
+static volatile _NotificationLEDMode NotificationLEDMode = nlmError;
+
+void SetNotificationLEDMode(_NotificationLEDMode mode) {
+    NotificationLEDMode = mode;
+}
 
 void NotificationLEDHandler(void)
 {

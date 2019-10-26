@@ -22,7 +22,8 @@ extern "C" {
 #endif
 
 typedef enum {nlmError, nlmSynchronized} _NotificationLEDMode;
-extern volatile _NotificationLEDMode NotificationLEDMode;
+
+void SetNotificationLEDMode(_NotificationLEDMode mode);
 
 void NotificationLEDHandler(void);
 

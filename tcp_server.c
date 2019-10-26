@@ -47,7 +47,7 @@ void TCP_Server(void)
             TCP_SocketInit(&serverSocket);
             break;
         case SOCKET_CLOSED:
-            NotificationLEDMode = nlmError;
+            SetNotificationLEDMode(nlmError);
             //configure the local port
             TCP_Bind(&serverSocket, ListenPort);
             // add receive buffer
@@ -90,7 +90,7 @@ void TCP_Server(void)
                 // if no data was read, send a keep alive sequence anyway
                 if (transmitLength == 0)
                 {
-                    NotificationLEDMode = nlmError;
+                    SetNotificationLEDMode(nlmError);
                     
                     transmitLength = 2;
                     transmitBuffer[0] = 0x02;
@@ -98,7 +98,7 @@ void TCP_Server(void)
                 }
                 else
                 {
-                    NotificationLEDMode = nlmSynchronized;
+                    SetNotificationLEDMode(nlmSynchronized);
                 }
                 
                 // send data, if any
@@ -108,7 +108,7 @@ void TCP_Server(void)
             break;
         case SOCKET_CLOSING:
             TCP_SocketRemove(&serverSocket);
-            NotificationLEDMode = nlmError;
+            SetNotificationLEDMode(nlmError);
             break;
             
         default:
